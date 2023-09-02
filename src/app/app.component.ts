@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {
-  AutoCompleteItem,
+  AutocompleteItem,
   ItValidators,
   SelectControlOption,
   UploadDragDropComponent,
@@ -30,7 +30,7 @@ export class AppComponent {
     {value: 'Valore 5', text: 'Opzione 5'}
   ]
 
-  autoCompleteSchoolsData: Array<AutoCompleteItem> = [
+  autoCompleteSchoolsData: Array<AutocompleteItem> = [
     {
       value: 'Leonardo Da Vinci',
       icon: 'pa',
