@@ -1,10 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 import {
   AutocompleteItem,
   ItValidators,
   SelectControlOption,
-  UploadDragDropComponent,
+  ItUploadDragDropComponent,
   UploadFileListItem
 } from "design-angular-kit";
 import {delay, forkJoin, interval, map, take, tap} from "rxjs";
@@ -16,6 +17,23 @@ import {delay, forkJoin, interval, map, take, tap} from "rxjs";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+
+
+  form = new FormGroup({});
+  model = { email: 'email@gmail.com' };
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'email',
+      type: 'input',
+      props: {
+        label: 'Email address',
+        placeholder: 'Enter email',
+        required: true,
+      }
+    }
+  ];
+
 
   isLoadingSend: boolean = false;
 
@@ -56,7 +74,7 @@ export class AppComponent {
 
   uploadedFileList: Array<UploadFileListItem> = [];
 
-  @ViewChild('uploadDragDropComponent') uploadDragDropComponent!: UploadDragDropComponent;
+  @ViewChild('ItUploadDragDropComponent') uploadDragDropComponent!: ItUploadDragDropComponent;
 
   constructor(private _formBuilder: FormBuilder) {
     this.reactiveFormGroup = this._formBuilder.group({
@@ -159,5 +177,11 @@ export class AppComponent {
       this.isLoadingSend = false
     }, 5000);
   }
+
+
+  onSubmit2(model:any) {
+    console.log(model);
+  }
+
 
 }
